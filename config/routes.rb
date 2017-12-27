@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     resources :orders, only: %i[index create show]
   end
 
+  get '/is-it-coffee-time', to: 'coffee#coffee_time'
+  get '/log-error', to: 'errors#log'
+  get '/log-message', to: 'errors#message'
+  get '/throw-error', to: 'errors#throw_error'
+
   get '*path', to: 'pages#index'
   root to: 'pages#index'
 end

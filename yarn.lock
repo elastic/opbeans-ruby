@@ -932,7 +932,7 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-brace-expansion@^1.1.7:
+brace-expansion@^1.1.6, brace-expansion@^1.1.7:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.8.tgz#c07b211c7c952ec1f8efd51a77ef0d1d3990a292"
   dependencies:
@@ -1585,6 +1585,10 @@ csso@~2.3.1:
   dependencies:
     clap "^1.0.9"
     source-map "^0.5.3"
+
+csv-line@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/csv-line/-/csv-line-1.2.0.tgz#8cb0c5623ec493dec759419feed73e8255289af9"
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
@@ -2777,6 +2781,10 @@ is-glob@^3.1.0:
   dependencies:
     is-extglob "^2.1.0"
 
+is-it-weekend@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/is-it-weekend/-/is-it-weekend-1.1.0.tgz#c8a9259ad293cf49986f68843929c161c7c72ef1"
+
 is-my-json-valid@^2.12.4:
   version "2.17.1"
   resolved "https://registry.yarnpkg.com/is-my-json-valid/-/is-my-json-valid-2.17.1.tgz#3da98914a70a22f0a8563ef1511a246c6fc55471"
@@ -3318,6 +3326,12 @@ mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
 moment@^2.20.1:
   version "2.20.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.20.1.tgz#d6eb1a46cbcc14a2b2f9434112c1ff8907f313fd"
+
+mostly-working-hours@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/mostly-working-hours/-/mostly-working-hours-1.0.0.tgz#84837a9de698b7fc7a81a33e2fe5e3ecb8d94804"
+  dependencies:
+    is-it-weekend "^1.0.0"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -4665,7 +4679,7 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
-request@2:
+request@2, request@^2.79.0:
   version "2.83.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.83.0.tgz#ca0b65da02ed62935887808e6f510381034e3356"
   dependencies:
@@ -5610,6 +5624,10 @@ websocket-extensions@>=0.1.1:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
 
+weighted@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/weighted/-/weighted-0.3.0.tgz#81087f1ffe1b3f06db43dbe451451e9068166647"
+
 whatwg-fetch@>=0.10.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.3.tgz#9c84ec2dcf68187ff00bc64e1274b442176e1c84"
@@ -5646,6 +5664,19 @@ wordwrap@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.2.tgz#b79669bb42ecb409f83d583cad52ca17eaa1643f"
 
+workload@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/workload/-/workload-2.4.3.tgz#eb7d425e8572f641977a2f159ee9f6fdfdc24110"
+  dependencies:
+    brace-expansion "^1.1.6"
+    csv-line "^1.2.0"
+    is-it-weekend "^1.0.0"
+    minimist "^1.2.0"
+    mostly-working-hours "^1.0.0"
+    request "^2.79.0"
+    weighted "^0.3.0"
+    xtend "^4.0.1"
+
 wrap-ansi@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-2.1.0.tgz#d8fc3d284dd05794fe84973caecdd1cf824fdd85"
@@ -5657,7 +5688,7 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
 
-xtend@^4.0.0, xtend@~4.0.1:
+xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 
