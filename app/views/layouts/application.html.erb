@@ -3,12 +3,15 @@
   <head>
     <title>Opbeans</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://unpkg.com/semantic-ui@2.2.13/dist/semantic.min.css">
   </head>
 
   <body>
     <%= yield %>
+    <%= javascript_pack_tag 'application' %>
+    <script>
+      var pageName = window.location.pathname.split('/')[1]
+window.elasticApm.setInitialPageLoadName(pageName)
+    </script>
   </body>
 </html>
