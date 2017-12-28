@@ -1,5 +1,7 @@
 namespace :db do
   task :prime => :environment do
+    exit 0 if ProductKind.any?
+
     puts "Creating kinds"
     create_product_kinds { print '.' }
     puts "Creating products"
