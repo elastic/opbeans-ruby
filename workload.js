@@ -1,8 +1,9 @@
 'use strict'
 
 var Workload = require('workload')
-var url = 'http://localhost:3000/'
+var url = process.env.OPBEANS_SERVER_URL + '/'
 var api = url + 'api/'
+console.log(api)
 
 module.exports = {
   max: 120,
