@@ -11,7 +11,7 @@ module Opbeans
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
-    config.elastic_apm.server_url =
+    config.elastic_apm.server =
       ENV.fetch('ELASTIC_APM_SERVER_URL', 'http://localhost:8200')
 
     # Settings in config/environments/* take precedence over those specified here.
