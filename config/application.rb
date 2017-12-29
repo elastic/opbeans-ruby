@@ -11,6 +11,7 @@ module Opbeans
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
+    config.elastic_apm.app_name = 'opbeans-ruby'
     config.elastic_apm.server =
       ENV.fetch('ELASTIC_APM_SERVER_URL', 'http://localhost:8200')
 
