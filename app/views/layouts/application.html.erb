@@ -9,9 +9,5 @@
   <body>
     <%= yield %>
     <%= javascript_pack_tag 'application' %>
-    <script>
-      var pageName = window.location.pathname.split('/')[1]
-window.elasticApm.setInitialPageLoadName(pageName)
-    </script>
   </body>
 </html>

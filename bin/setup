@@ -34,7 +34,4 @@ chdir APP_ROOT do
 
   puts "\n== Compiling assets =="
   system! 'bin/rails assets:precompile'
-
-  puts "\n== Restarting application server =="
-  system! 'bin/rails restart'
 end
