@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:elastic/apm-agent-ruby
+  remote: https://github.com/elastic/apm-agent-ruby
   revision: ef42a2f2735a4729a9c1b819089edb786065956e
   specs:
     elastic-apm (0.3.0)
