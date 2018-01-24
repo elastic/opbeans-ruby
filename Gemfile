@@ -9,7 +9,7 @@ gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'webpacker'
-gem 'elastic-apm', git: 'https://github.com/elastic/apm-agent-ruby'
+gem 'elastic-apm', git: 'git@github.com:elastic/apm-agent-ruby'
 gem 'foreman'
 
 group :development, :test do
