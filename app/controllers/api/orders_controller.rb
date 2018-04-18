@@ -1,7 +1,7 @@
 module Api
   class OrdersController < BaseController
     def index
-      render json: Order.all
+      render json: Order.includes(:customer).all
     end
 
     def create

@@ -1,7 +1,7 @@
 module Api
   class ProductsController < BaseController
     def index
-      products = Product.all
+      products = Product.includes(:product_kind).all
       render json: products
     end
 

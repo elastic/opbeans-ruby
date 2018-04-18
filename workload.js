@@ -43,7 +43,7 @@ module.exports = {
 function fillOutOrder (req, next) {
   if (req.method === 'POST' && req.url === api + 'orders') {
     var order = {
-      customer_id: randId(1000),
+      customer_id: randId(5),
       lines: []
     }
     for (var n = 0; n < 5; n++) {

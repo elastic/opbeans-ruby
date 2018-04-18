@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: opbeans_production
-  username: opbeans
-  password: <%= ENV['OPBEANS_DATABASE_PASSWORD'] %>
+  <%# username: opbeans %>
+  <%# password: <%= ENV['OPBEANS_DATABASE_PASSWORD'] %1> %>
