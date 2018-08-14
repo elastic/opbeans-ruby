@@ -6,12 +6,12 @@ class ErrorsController < ApplicationController
       ElasticAPM.report e
     end
 
-    render plain: 'ok'
+    render plain: 'error', status: 500
   end
 
   def message
     ElasticAPM.report_message "This is a message"
-    render plain: 'ok'
+    render plain: 'error', status: 500
   end
 
   def throw_error
