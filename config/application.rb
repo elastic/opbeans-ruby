@@ -17,5 +17,9 @@ module Opbeans
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    middleware.use Rack::Static,
+      urls: [%r{/images}, %r{/static}],
+      root: Rails.root.join('frontend', 'build').to_s
   end
 end

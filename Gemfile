@@ -8,12 +8,11 @@ end
 gem 'elastic-apm'
 gem 'foreman'
 gem 'lograge'
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.7'
-gem 'rails', '~> 5.1.4'
-gem 'webpacker'
+gem 'pg'
+gem 'puma'
+gem 'rails', '~> 5.2.1'
 
 group :development do
   gem 'bootsnap'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen'
 end
