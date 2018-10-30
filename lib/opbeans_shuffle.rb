@@ -19,16 +19,20 @@ class OpbeansShuffle
         lucky_winner = "http://#{lucky_winner}:3000"
       end
 
-      resp = HTTP.get("#{lucky_winner}#{path}")
+      Timeout.timeout(15) do
+        resp = HTTP.get("#{lucky_winner}#{path}")
 
-      [
-        resp.status,
-        { 'Content-Type' => resp.headers['Content-Type'] || 'text/plain' },
-        resp.body
-      ]
+        [
+          resp.status,
+          { 'Content-Type' => resp.headers['Content-Type'] || 'text/plain' },
+          resp.body
+        ]
+      end
     else
       @app.call(env)
     end
+  rescue Timeout::Error
+    Rails.logger.error "Connection to #{lucky_winner} timed out after 15s"
+    raise
   end
 end
-
