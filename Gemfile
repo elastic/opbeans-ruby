@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'elastic-apm', github: 'elastic/apm-agent-ruby', branch: '2.x'
+gem 'elastic-apm'
 gem 'foreman'
 gem 'http'
 gem 'lograge'
