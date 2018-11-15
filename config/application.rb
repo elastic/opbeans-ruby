@@ -15,6 +15,7 @@ module Opbeans
     config.elastic_apm.server_url =
       ENV.fetch('ELASTIC_APM_SERVER_URL', 'http://localhost:8200')
     config.elastic_apm.log_level = Logger::DEBUG
+    config.elastic_apm.pool_size = 2
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
