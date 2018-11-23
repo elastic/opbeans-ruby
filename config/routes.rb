@@ -15,8 +15,6 @@ Rails.application.routes.draw do
   get '/log-message', to: 'errors#message'
   get '/throw-error', to: 'errors#throw_error'
 
-  get '/rum-config.js', to: 'application#rum_config'
-
   get '*path', to: 'application#index', format: 'html'
   root to: 'application#index'
 end
