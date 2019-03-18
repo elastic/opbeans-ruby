@@ -11,7 +11,7 @@ gem 'http'
 gem 'lograge'
 gem 'pg'
 gem 'puma'
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 5.2.2.1'
 
 group :development do
   gem 'bootsnap'
