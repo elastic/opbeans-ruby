@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception, except: %i[rum_config]
 
+  User = Struct.new(:id, :email, :username)
+
+  before_action do
+    ElasticAPM.set_tag :company, 'opbeans'
+    ElasticAPM.set_user User.new(3229, 'coffeelover@example.com', 'coffeelover')
+  end
+
   INDEX_FILE =
     File.read(Rails.root.join('frontend', 'build', 'index.html'))
 
