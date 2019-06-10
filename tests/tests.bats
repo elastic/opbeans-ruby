@@ -14,6 +14,7 @@ CONTAINER="opbeans-ruby"
 }
 
 @test "create test container" {
+	export OPBEANS_SERVER_PORT=${PORT}
 	run docker-compose up -d
 	assert_success
 }
