@@ -28,7 +28,7 @@ services:
       postgres:
         condition: service_started
     healthcheck:
-      test: ["CMD", "curl", "--write-out", "'HTTP %{http_code}'", "--silent", "--output", "/dev/null", "http://opbeans-ruby:8000/"]
+      test: ["CMD", "curl", "--write-out", "'HTTP %{http_code}'", "--silent", "--output", "/dev/null", "http://opbeans-ruby:5000/"]
       interval: 10s
       retries: 10
 
