@@ -1,3 +1,5 @@
+[![Build Status](https://apm-ci.elastic.co/job/apm-agent-ruby/job/opbeans-ruby-mbp/job/master/badge/icon)](https://apm-ci.elastic.co/job/apm-agent-ruby/job/opbeans-ruby-mbp/job/master/)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
