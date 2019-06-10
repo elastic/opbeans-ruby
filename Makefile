@@ -24,10 +24,6 @@ prepare-test: bats ## Prepare the bats dependencies
 	@git submodule update --init --recursive
 
 test: prepare-test ## Run the tests
-	@echo "Debug"
-	@docker-compose up -d
-	@docker ps
-	@docker port "opbeans-ruby" ${PORT}
 	@echo "Tests are in progress, please be patient"
 	@PORT=${PORT} bats/bin/bats --tap tests | tee target/results.tap
 	@docker run --rm -v "${PWD}":/usr/src/app -w /usr/src/app node:${LTS_ALPINE} \
