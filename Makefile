@@ -23,15 +23,6 @@ prepare-test: bats ## Prepare the bats dependencies
 	@git submodule sync
 	@git submodule update --init --recursive
 
-debug:
-	OPBEANS_SERVER_PORT=${PORT} docker-compose up -d
-	@sleep 10
-	curl -v --fail --connect-timeout 10 --max-time 30 "http://127.0.0.1:${PORT}" || true
-	@echo "curl -v --fail --connect-timeout 10 --max-time 30 http://127.0.0.1:${PORT}/"
-	@docker logs opbeans-ruby || true
-	@docker ps
-	@docker-compose down
-
 test: prepare-test ## Run the tests
 	@echo "Tests are in progress, please be patient"
 	@PORT=${PORT} bats/bin/bats --tap tests | tee target/results.tap
