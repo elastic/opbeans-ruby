@@ -1,13 +1,6 @@
 version: "2.1"
 services:
 
-  start_dependencies:
-    image: dadarek/wait-for-dependencies
-    depends_on:
-      opbeans-ruby:
-        condition: service_healthy
-    command: opbeans-ruby:5000
-
   opbeans-ruby:
     build: .
     image: opbeans/opbeans-ruby:latest
