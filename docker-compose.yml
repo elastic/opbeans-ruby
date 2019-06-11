@@ -1,5 +1,15 @@
 version: "2.1"
 services:
+
+  # Wait for the opbeans is up and running
+  wait-for:
+    image: gesellix/wait-for:latest
+    container_name: wait-for
+    command: 'opbeans-ruby:5000 -t 30 -- echo "opbeans-ruby is up"'
+    depends_on:
+      opbeans-ruby:
+        condition: service_healthy
+
   opbeans-ruby:
     build: .
     image: opbeans/opbeans-ruby:latest

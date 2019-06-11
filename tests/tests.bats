@@ -17,6 +17,7 @@ CONTAINER="opbeans-ruby"
 	export OPBEANS_SERVER_PORT=${PORT}
 	run docker-compose up -d
 	assert_success
+	sleep 50
 }
 
 @test "test container is running" {
@@ -24,8 +25,17 @@ CONTAINER="opbeans-ruby"
 	assert_output --partial 'true'
 }
 
+@test "test wait-for container exited with 0" {
+	run docker inspect -f {{.State.ExitCode}} wait-for
+	assert_output '0'
+}
+
+@test "test container is healthy" {
+	run docker inspect -f {{.State.Health}} $CONTAINER
+	assert_output --partial 'healthy 0'
+}
+
 @test "opbeans is running in port ${PORT}" {
-	sleep 50
 	URL="http://127.0.0.1:$(docker port "$CONTAINER" ${PORT} | cut -d: -f2)"
 	run curl -v --fail --connect-timeout 10 --max-time 30 "${URL}/"
 	assert_success
