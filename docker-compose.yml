@@ -1,6 +1,19 @@
 version: "2.1"
 services:
 
+  wait-for-opbeans-ruby:
+    container_name: wait-for-opbeans-ruby
+    image: alpine
+    command: >
+      /bin/sh -c exit 0
+    healthcheck:
+      test: ["CMD", "/bin/sh", "-c", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      opbeans-ruby:
+        condition: service_healthy
+
   opbeans-ruby:
     build: .
     image: opbeans/opbeans-ruby:latest
