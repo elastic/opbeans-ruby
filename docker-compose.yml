@@ -36,7 +36,6 @@ services:
       - PGUSER=postgres
       - PGPASSWORD=hunter2
       - PGPORT=5432
-      - OPBEANS_DATABASE_PASSWORD=hunter2
     depends_on:
       elasticsearch:
         condition: service_healthy
