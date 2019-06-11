@@ -66,6 +66,7 @@ pipeline {
             deleteDir()
             unstash 'source'
             dir("${BASE_DIR}"){
+              sh "make debug"
               sh "make test"
             }
           }
