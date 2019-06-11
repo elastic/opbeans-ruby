@@ -17,17 +17,11 @@ CONTAINER="opbeans-ruby"
 	export OPBEANS_SERVER_PORT=${PORT}
 	run docker-compose up -d
 	assert_success
-	sleep 50
 }
 
 @test "test container is running" {
 	run docker inspect -f {{.State.Running}} $CONTAINER
 	assert_output --partial 'true'
-}
-
-@test "test wait-for container exited with 0" {
-	run docker inspect -f {{.State.ExitCode}} wait-for
-	assert_output '0'
 }
 
 @test "test container is healthy" {
