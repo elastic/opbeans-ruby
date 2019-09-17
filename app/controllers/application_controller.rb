@@ -34,9 +34,9 @@ class ApplicationController < ActionController::Base
 
   def rum_config
     {
-      serviceName: ENV['RUM_SERVICE_NAME'],
-      serviceVersion: ENV['RUM_SERVICE_VERSION'],
-      serverUrl: ENV['RUM_SERVER_URL'],
+      serviceName: ENV['ELASTIC_APM_JS_SERVICE_NAME'],
+      serviceVersion: ENV['ELASTIC_APM_JS_SERVICE_VERSION'],
+      serverUrl: ENV['ELASTIC_APM_JS_SERVER_URL'],
       pageLoadTraceId: ElasticAPM.current_transaction&.trace_id,
       pageLoadSpanId: ElasticAPM.current_transaction&.ensure_parent_id,
       pageLoadSampled: ElasticAPM.current_transaction&.sampled?
