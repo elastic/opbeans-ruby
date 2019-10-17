@@ -1,6 +1,12 @@
-FROM ruby:2.6
+FROM ruby:2.6-alpine
 
 WORKDIR /app
+
+## Dependencies for nokogiri and pg
+RUN apk update && \
+    apk --no-cache add build-base && \
+    apk --no-cache add postgresql-dev && \
+    rm -rf /var/cache/apk/*
 
 COPY Gemfile Gemfile.lock /app/
 ENV BUNDLER_VERSION 2.0.1
