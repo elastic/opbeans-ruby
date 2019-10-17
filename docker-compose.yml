@@ -28,7 +28,7 @@ services:
       postgres:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "--write-out", "'HTTP %{http_code}'", "--silent", "--output", "/dev/null", "http://opbeans-ruby:5000/"]
+      test: ["CMD", "wget", "-q", "--server-response", "http://opbeans-ruby:5000/"]
       interval: 10s
       retries: 10
 
@@ -138,7 +138,7 @@ services:
     depends_on:
       opbeans-ruby:
         condition: service_healthy
-        
+
 volumes:
   esdata:
     driver: local
