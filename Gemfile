@@ -12,6 +12,7 @@ gem 'lograge'
 gem 'pg'
 gem 'puma'
 gem 'rails', '~> 5.2'
+gem 'tzinfo-data'
 
 group :development do
   gem 'bootsnap'
