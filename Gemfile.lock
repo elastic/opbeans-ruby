@@ -146,6 +146,8 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2019.3)
+      tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
@@ -166,6 +168,7 @@ DEPENDENCIES
   pg
   puma
   rails (~> 5.2)
+  tzinfo-data
 
 BUNDLED WITH
    2.0.2

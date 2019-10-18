@@ -1,3 +1,4 @@
-#!/bin/bash -ex
+#!/usr/bin/env sh
+set -ex
 bin/setup
 bundle exec foreman start
