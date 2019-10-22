@@ -10,10 +10,6 @@ RUN rm -f /etc/service/nginx/down
 # Remove the default site
 RUN rm /etc/nginx/sites-enabled/default
 
-# Add the nginx site and config
-ADD dockerfiles/webapp.conf /etc/nginx/sites-enabled/webapp.conf
-ADD dockerfiles/rails-env.conf /etc/nginx/main.d/rails-env.conf
-
 RUN apt-get update && apt-get install -y tzdata
 
 # Install bundle of gems
@@ -22,6 +18,10 @@ ADD Gemfile /tmp/
 ADD Gemfile.lock /tmp/
 RUN gem install bundler -v 2.0.2
 RUN bundle install
+
+# Add the nginx site and config
+ADD dockerfiles/webapp.conf /etc/nginx/sites-enabled/webapp.conf
+ADD dockerfiles/rails-env.conf /etc/nginx/main.d/rails-env.conf
 
 # Add the Rails app
 ADD . /home/app/webapp
