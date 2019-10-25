@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   User = Struct.new(:id, :email, :username)
 
   before_action do
-    ElasticAPM.set_tag :company, 'opbeans'
+    ElasticAPM.set_label :company, 'opbeans'
     ElasticAPM.set_user User.new(3229, 'coffeelover@example.com', 'coffeelover')
   end
 
