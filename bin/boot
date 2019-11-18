@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
-set -ex
+set -exo pipefail
 bin/setup
 bundle exec foreman start 2>&1 | cut -d '|' -f 2
