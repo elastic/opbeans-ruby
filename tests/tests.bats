@@ -29,11 +29,6 @@ CONTAINER="opbeans-ruby"
 	assert_output --partial 'healthy 0'
 }
 
-@test "test container is listening" {
-	run docker logs $CONTAINER
-	assert_output --partial 'Listening on'
-}
-
 @test "opbeans is running in port ${PORT}" {
 	URL="http://127.0.0.1:$(docker port "$CONTAINER" ${PORT} | cut -d: -f2)"
 	run curl -v --fail --connect-timeout 10 --max-time 30 "${URL}/"

@@ -1,5 +1,5 @@
 
-PORT ?= 5000
+PORT ?= 3000
 VERSION ?= latest
 LTS_ALPINE ?= 12-alpine
 
