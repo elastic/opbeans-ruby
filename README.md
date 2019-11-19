@@ -1,4 +1,4 @@
-[![Build Status](https://apm-ci.elastic.co/job/apm-agent-ruby/job/opbeans-ruby-mbp/job/master/badge/icon)](https://apm-ci.elastic.co/job/apm-agent-ruby/job/opbeans-ruby-mbp/job/master/)
+[![Build Status](https://apm-ci.elastic.co/buildStatus/icon?job=apm-agent-ruby%2Fopbeans-ruby-mbp%2Fmaster)](https://apm-ci.elastic.co/job/apm-agent-ruby/job/opbeans-ruby-mbp/job/master/)
 
 # README
 
