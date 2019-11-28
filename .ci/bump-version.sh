@@ -11,7 +11,6 @@ docker run --rm -t \
   -w /app \
   -v "$(pwd):/app" \
   ruby:2.6 /bin/bash -c "set -x
-    gem update --system
     gem install bundler
     bundle install
     bundle update elastic-apm"
