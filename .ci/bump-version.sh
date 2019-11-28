@@ -7,7 +7,7 @@ AGENT_VERSION="${1?Missing the APM ruby agent version}"
 docker run --rm -t \
   --user $UID \
   -e LOCAL_USER_ID=$UID \
-  -e HOME=/app \
+  -e HOME=/tmp \
   -w /app \
   -v "$(pwd):/app" \
   ruby:2.6 /bin/bash -c "set -x
