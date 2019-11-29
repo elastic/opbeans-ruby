@@ -3,6 +3,9 @@ set -euxo pipefail
 
 AGENT_VERSION="${1?Missing the APM ruby agent version}"
 
+## Gather ruby version
+RUBY_VERSION=$(cat Gemfile | grep '^ruby' | sed -E "s/.*[\"'](.+)[\"']/\1/")
+
 ## Use docker to bump the version to ensure the environment is easy to reproduce.
 docker run --rm -t \
   --user $UID \
@@ -10,7 +13,7 @@ docker run --rm -t \
   -e HOME=/tmp \
   -w /app \
   -v "$(pwd):/app" \
-  ruby:2.6 /bin/bash -c "set -x
+  ruby:${RUBY_VERSION}-alpine /bin/sh -c "set -x
     gem install bundler
     bundle install
     bundle update elastic-apm"
