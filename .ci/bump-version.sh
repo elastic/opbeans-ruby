@@ -20,4 +20,4 @@ git diff --name-only -S"elastic-apm (${AGENT_VERSION})" | grep Gemfile.lock
 
 # Commit changes
 git add Gemfile.lock
-git commit -m "Bump version ${AGENT_VERSION}"
+git commit -m "fix(package): bump elastic-apm to version ${AGENT_VERSION}"
