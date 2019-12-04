@@ -9,9 +9,6 @@ Bundler.require(*Rails.groups)
 
 module Opbeans
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.1
-
     config.elastic_apm.server_url =
       ENV.fetch('ELASTIC_APM_SERVER_URL', 'http://localhost:8200')
     config.elastic_apm.log_level = Logger::DEBUG
