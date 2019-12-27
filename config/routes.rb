@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :stats, only: %i[index]
     resources :products, only: %i[index show] do
       collection { get :top }
-      resources :customers, only: %i[index]
+      resources :customers, only: %i[index show]
     end
     resources :types, only: %i[index show]
     resources :customers, only: %i[index show]
