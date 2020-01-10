@@ -3,6 +3,9 @@ set -euxo pipefail
 
 AGENT_VERSION="${1?Missing the APM ruby agent version}"
 
+## Normalise the agent version that it's coming from the tag name.
+NEW_AGENT_VERSION=$(echo ${AGENT_VERSION} | sed 's#^v##g')
+
 ## Gather ruby version
 RUBY_VERSION=$(grep '^ruby' Gemfile | sed -E "s/.*[\"'](.+)[\"']/\1/")
 
@@ -18,8 +21,8 @@ docker run --rm -t \
     bundle update elastic-apm"
 
 # Validate whether the agent version matches
-git diff --name-only -S"elastic-apm (${AGENT_VERSION})" | grep Gemfile.lock
+git diff --name-only -S"elastic-apm (${NEW_AGENT_VERSION})" | grep Gemfile.lock
 
 # Commit changes
 git add Gemfile.lock
-git commit -m "fix(package): bump elastic-apm to version ${AGENT_VERSION}"
+git commit -m "fix(package): bump elastic-apm to version ${NEW_AGENT_VERSION}"
