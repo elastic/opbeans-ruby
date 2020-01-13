@@ -24,7 +24,7 @@ docker run --rm -t \
 git diff --name-only -S"elastic-apm (${NEW_AGENT_VERSION})" | grep Gemfile.lock && found=1 || found=0
 if [ ${found} -eq 0 ] ; then
   echo 'ERROR: Agent version was not updated. See the below diff detail output:'
-  git diff Gemfile.lock
+  git diff --unified=0 Gemfile.lock
   exit 1
 fi
 
