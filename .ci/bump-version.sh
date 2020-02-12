@@ -14,10 +14,12 @@ docker run --rm -t \
   --user $UID \
   -e LOCAL_USER_ID=$UID \
   -e HOME=/tmp \
+  -e AGENT_VERSION="${NEW_AGENT_VERSION}" \
   -w /app \
   -v "$(pwd):/app" \
   ruby:${RUBY_VERSION} /bin/sh -c "set -x
     gem install bundler
+    gem install elastic-apm -v ${AGENT_VERSION}
     bundle update elastic-apm"
 
 # Validate whether the agent version matches
