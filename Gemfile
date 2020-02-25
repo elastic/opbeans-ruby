@@ -8,6 +8,7 @@ end
 
 gem 'elastic-apm'
 gem 'foreman'
+gem 'graphql'
 gem 'http'
 gem 'lograge'
 gem 'pg'
@@ -19,3 +20,5 @@ group :development do
   gem 'bootsnap'
   gem 'listen'
 end
+
+gem 'graphiql-rails', group: :development

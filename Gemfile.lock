@@ -64,6 +64,10 @@ GEM
       thor (~> 0.19.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    graphiql-rails (1.7.0)
+      railties
+      sprockets-rails
+    graphql (1.10.3)
     http (4.3.0)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -166,6 +170,8 @@ DEPENDENCIES
   bootsnap
   elastic-apm
   foreman
+  graphiql-rails
+  graphql
   http
   listen
   lograge
