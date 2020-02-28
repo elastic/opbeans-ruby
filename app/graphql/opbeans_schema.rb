@@ -1,3 +1,5 @@
+require 'elastic_apm/graphql'
+
 class OpbeansSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
@@ -8,4 +10,6 @@ class OpbeansSchema < GraphQL::Schema
 
   # Add built-in connections for pagination
   use GraphQL::Pagination::Connections
+
+  tracer ElasticAPM::GraphQL
 end

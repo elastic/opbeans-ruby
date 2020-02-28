@@ -1,0 +1,11 @@
+http://localhost:3000
+Content-Type: application/json
+
+POST /graphql
+{
+  "queries": [
+    "query SKUs { products { sku } }",
+    "query Names { products { name } }"
+  ]
+}
+
