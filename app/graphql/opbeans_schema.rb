@@ -1,5 +1,3 @@
-require 'elastic_apm/graphql'
-
 class OpbeansSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
