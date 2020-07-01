@@ -30,6 +30,9 @@ if [ ${found} -eq 0 ] ; then
   exit 1
 fi
 
+## Bump agent version in the Dockerfile
+sed -ibck "s#\(org.label-schema.version=\)\(.*\)#\1\"${NEW_AGENT_VERSION}\"#g" Dockerfile
+
 # Commit changes
-git add Gemfile.lock
+git add Gemfile.lock Dockerfile
 git commit -m "fix(package): bump elastic-apm to version ${NEW_AGENT_VERSION}"
