@@ -31,7 +31,7 @@ if [ ${found} -eq 0 ] ; then
 fi
 
 ## Bump agent version in the Dockerfile
-sed -ibck "s#\(org.label-schema.version=\)\(.*\)#\1\"${NEW_AGENT_VERSION}\"#g" Dockerfile
+sed -ibck "s#\(org.label-schema.version=\)\(\".*\"\)\(.*\)#\1\"${NEW_AGENT_VERSION}\"\3#g" Dockerfile
 
 # Commit changes
 git add Gemfile.lock Dockerfile
