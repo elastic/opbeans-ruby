@@ -17,4 +17,13 @@ COPY . /app
 
 COPY --from=opbeans/opbeans-frontend:latest /app/build /app/frontend/build
 
+LABEL \
+    org.label-schema.schema-version="1.0" \
+    org.label-schema.vendor="Elastic" \
+    org.label-schema.name="opbeans-ruby" \
+    org.label-schema.version="3.8.0" \
+    org.label-schema.url="https://hub.docker.com/r/opbeans/opbeans-ruby" \
+    org.label-schema.vcs-url="https://github.com/elastic/opbeans-ruby" \
+    org.label-schema.license="MIT"
+
 CMD ["bin/boot"]
