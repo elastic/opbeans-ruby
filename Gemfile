@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
-ruby '2.7.1'
+
+ruby '2.7.2'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'sprockets', '~> 3'
+gem 'sprockets'
 gem 'elastic-apm'
 gem 'foreman'
 gem 'http'
