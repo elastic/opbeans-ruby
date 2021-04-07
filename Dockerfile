@@ -1,4 +1,4 @@
-FROM ruby:2.7.2-alpine
+FROM ruby:2.7.3-alpine
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ RUN apk update && \
     rm -rf /var/cache/apk/*
 
 COPY Gemfile Gemfile.lock /app/
-ENV BUNDLER_VERSION 2.0.1
+ENV BUNDLER_VERSION 2.2.15
 RUN gem install bundler
 RUN bundle install --jobs 20 --retry 5
 
