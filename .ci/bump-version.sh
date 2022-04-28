@@ -18,7 +18,8 @@ docker run --rm -t \
   -w /app \
   -v "$(pwd):/app" \
   ruby:${RUBY_VERSION} /bin/sh -c "set -x
-    gem install bundler
+    # This version is fixed in the Gemfile.lock
+    gem install bundler -v 2.2.22
     gem install elastic-apm -v ${AGENT_VERSION}
     bundle update elastic-apm"
 
