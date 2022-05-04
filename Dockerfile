@@ -24,6 +24,13 @@ LABEL \
     org.label-schema.version="4.5.0" \
     org.label-schema.url="https://hub.docker.com/r/opbeans/opbeans-ruby" \
     org.label-schema.vcs-url="https://github.com/elastic/opbeans-ruby" \
-    org.label-schema.license="MIT"
+    org.label-schema.license="MIT" \
+    org.opencontainers.image.vendor="Elastic" \
+    org.opencontainers.image.title="opbeans-ruby" \
+    org.opencontainers.image.version="4.5.0" \
+    org.opencontainers.image.url="https://hub.docker.com/r/opbeans/opbeans-ruby" \
+    org.opencontainers.image.source="https://github.com/elastic/opbeans-ruby" \
+    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.base.name="ruby:2.7.3-alpine"
 
 CMD ["bin/boot"]

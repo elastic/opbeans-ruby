@@ -9,6 +9,13 @@ NEW_AGENT_VERSION=$(echo ${AGENT_VERSION} | sed 's#^v##g')
 ## Gather ruby version
 RUBY_VERSION=$(grep '^ruby' Gemfile | sed -E "s/.*[\"'](.+)[\"']/\1/")
 
+# Update elastic-apm in Gemfile
+sed -ibck "s#\(gem 'elastic-apm', \)\('.*'\)\(.*\)#\1'${NEW_AGENT_VERSION}'\3#g" Gemfile
+
+## Bump agent version in the Dockerfile
+sed -ibck "s#\(org.label-schema.version=\)\(\".*\"\)\(.*\)#\1\"${NEW_AGENT_VERSION}\"\3#g" Dockerfile
+sed -ibck "s#\(org.opencontainers.image.version=\)\(\".*\"\)\(.*\)#\1\"${NEW_AGENT_VERSION}\"\3#g" Dockerfile
+
 ## Use docker to bump the version to ensure the environment is easy to reproduce.
 docker run --rm -t \
   --user $UID \
@@ -20,7 +27,6 @@ docker run --rm -t \
   ruby:${RUBY_VERSION} /bin/sh -c "set -x
     # This version is fixed in the Gemfile.lock
     gem install bundler -v 2.2.22
-    gem install elastic-apm -v ${AGENT_VERSION}
     bundle update elastic-apm"
 
 # Validate whether the agent version matches
@@ -31,9 +37,6 @@ if [ ${found} -eq 0 ] ; then
   exit 1
 fi
 
-## Bump agent version in the Dockerfile
-sed -ibck "s#\(org.label-schema.version=\)\(\".*\"\)\(.*\)#\1\"${NEW_AGENT_VERSION}\"\3#g" Dockerfile
-
 # Commit changes
-git add Gemfile.lock Dockerfile
+git add Gemfile.lock Gemfile Dockerfile
 git commit -m "fix(package): bump elastic-apm to version ${NEW_AGENT_VERSION}"
