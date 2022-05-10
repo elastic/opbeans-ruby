@@ -1,4 +1,6 @@
-FROM ruby:2.7.3-alpine
+ARG RUBY_IMAGE="ruby:2.7.3-alpine"
+FROM ${RUBY_IMAGE}
+ARG RUBY_IMAGE
 
 WORKDIR /app
 
@@ -31,6 +33,6 @@ LABEL \
     org.opencontainers.image.url="https://hub.docker.com/r/opbeans/opbeans-ruby" \
     org.opencontainers.image.source="https://github.com/elastic/opbeans-ruby" \
     org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.base.name="ruby:2.7.3-alpine"
+    org.opencontainers.image.base.name="${RUBY_IMAGE}"
 
 CMD ["bin/boot"]
