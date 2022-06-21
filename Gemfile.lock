@@ -120,7 +120,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
-    pg (1.2.3)
+    pg (1.4.0)
     public_suffix (4.0.7)
     puma (5.5.2)
       nio4r (~> 2.0)
@@ -170,7 +170,7 @@ GEM
     thor (1.1.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2021.5)
+    tzinfo-data (1.2022.1)
       tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
