@@ -69,7 +69,7 @@ GEM
     crass (1.0.6)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    elastic-apm (4.5.0)
+    elastic-apm (4.5.1)
       concurrent-ruby (~> 1.0)
       http (>= 3.0)
     erubi (1.10.0)
@@ -85,7 +85,7 @@ GEM
       http-cookie (~> 1.0)
       http-form_data (~> 2.2)
       llhttp-ffi (~> 0.4.0)
-    http-cookie (1.0.4)
+    http-cookie (1.0.5)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
     i18n (1.8.10)
@@ -172,7 +172,7 @@ GEM
       tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.8.1)
+    unf_ext (0.0.8.2)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -185,7 +185,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  elastic-apm (= 4.5.0)
+  elastic-apm (= 4.5.1)
   foreman
   http
   listen
