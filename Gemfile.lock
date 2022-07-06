@@ -80,7 +80,7 @@ GEM
     foreman (0.87.2)
     globalid (0.5.2)
       activesupport (>= 5.0)
-    http (5.0.4)
+    http (5.1.0)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
       http-form_data (~> 2.2)
