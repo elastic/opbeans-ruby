@@ -19,7 +19,6 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7.3'
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - uses: elastic/apm-pipeline-library/.github/actions/updatecli@current
         with:
           vaultUrl: ${{ secrets.VAULT_ADDR }}
