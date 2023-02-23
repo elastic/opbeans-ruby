@@ -69,12 +69,25 @@ targets:
         org\.opencontainers\.image\.version="(\d+.\d+.\d+)"
       replacepattern: >-
         org.opencontainers.image.version="{{ source `elastic-apm-agent-ruby` }}"
+  gemfile:
+    name: Install new elastic-apm pip dependency version
+    sourceid: elastic-apm-agent-ruby
+    scmid: githubConfig
+    kind: file
+    spec:
+      file: Gemfile
+      matchpattern: >-
+        gem 'elastic-apm', '\d+\.\d+\.\d+'
+      replacepattern: >-
+        gem 'elastic-apm', '{{ source `elastic-apm-agent-ruby` }}'
   gem:
+    dependson:
+      - gemfile
     name: Bump elastic-apm
     sourceid: elastic-apm-agent-ruby
     scmid: githubConfig
     kind: shell
     spec:
-      command: ./.ci/bump-gem.sh
+      command: bundle update elastic-apm
       environments:
         - name: PATH
