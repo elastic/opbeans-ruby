@@ -1,0 +1,93 @@
+---
+## Workflow to periodically check if there is an available newer APM agent version, e.g.
+## "1.2.3". If so, then update to it.
+name: Bump elastic-apm to latest version
+
+title: Bump elastic-apm to latest version
+
+scms:
+  elastic-apm-agent-ruby:
+    kind: github
+    spec:
+      user: '{{ requiredEnv "GIT_USER" }}'
+      email: '{{ requiredEnv "GIT_EMAIL" }}'
+      owner: elastic
+      repository: apm-agent-ruby
+      token: '{{ requiredEnv "GITHUB_TOKEN" }}'
+      username: '{{ requiredEnv "GIT_USER" }}'
+      branch: main
+  githubConfig:
+    kind: github
+    spec:
+      user: '{{ requiredEnv "GIT_USER" }}'
+      email: '{{ requiredEnv "GIT_EMAIL" }}'
+      owner: elastic
+      repository: opbeans-ruby
+      token: '{{ requiredEnv "GITHUB_TOKEN" }}'
+      username: '{{ requiredEnv "GIT_USER" }}'
+      branch: main
+
+actions:
+  opbeans-ruby:
+    kind: github/pullrequest
+    scmid: githubConfig
+    spec:
+      automerge: false
+      labels:
+        - dependencies
+
+sources:
+  elastic-apm-agent-ruby:
+    scmid: elastic-apm-agent-ruby
+    kind: gittag
+    spec:
+      versionfilter:
+        kind: semver
+    transformers:
+      - trimprefix: "v"
+
+targets:
+  dockerfile-label-schema:
+    name: Set org.label-schema.version in Dockerfile
+    sourceid: elastic-apm-agent-ruby
+    scmid: githubConfig
+    kind: file
+    spec:
+      file: Dockerfile
+      matchpattern: >-
+        org\.label-schema\.version="(\d+.\d+.\d+)"
+      replacepattern: >-
+        org.label-schema.version="{{ source `elastic-apm-agent-ruby` }}"
+  dockerfile-opencontainers:
+    name: Set org.opencontainers.image.version in Dockerfile
+    sourceid: elastic-apm-agent-ruby
+    scmid: githubConfig
+    kind: file
+    spec:
+      file: Dockerfile
+      matchpattern: >-
+        org\.opencontainers\.image\.version="(\d+.\d+.\d+)"
+      replacepattern: >-
+        org.opencontainers.image.version="{{ source `elastic-apm-agent-ruby` }}"
+  gemfile:
+    name: Install new elastic-apm pip dependency version
+    sourceid: elastic-apm-agent-ruby
+    scmid: githubConfig
+    kind: file
+    spec:
+      file: Gemfile
+      matchpattern: >-
+        gem 'elastic-apm', '\d+\.\d+\.\d+'
+      replacepattern: >-
+        gem 'elastic-apm', '{{ source `elastic-apm-agent-ruby` }}'
+  gem:
+    dependson:
+      - gemfile
+    name: Bump elastic-apm
+    sourceid: elastic-apm-agent-ruby
+    scmid: githubConfig
+    kind: shell
+    spec:
+      command: bundle update elastic-apm
+      environments:
+        - name: PATH
