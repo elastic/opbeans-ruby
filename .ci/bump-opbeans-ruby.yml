@@ -85,6 +85,7 @@ targets:
       - gemfile
     name: Bump elastic-apm
     sourceid: elastic-apm-agent-ruby
+    disablesourceinput: true
     scmid: githubConfig
     kind: shell
     spec:
