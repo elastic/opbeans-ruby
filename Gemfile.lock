@@ -60,16 +60,16 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    addressable (2.8.1)
+    addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
-    concurrent-ruby (1.1.10)
+    concurrent-ruby (1.2.2)
     crass (1.0.6)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    elastic-apm (4.6.0)
+    elastic-apm (4.6.2)
       concurrent-ruby (~> 1.0)
       http (>= 3.0)
       ruby2_keywords
@@ -187,7 +187,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  elastic-apm (= 4.6.0)
+  elastic-apm (= 4.6.2)
   foreman
   http
   listen
