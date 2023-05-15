@@ -53,8 +53,6 @@ conditions:
     sourceid: elastic-apm-agent-ruby
     spec:
       command: .ci/scripts/test-version.sh
-      environments:
-        - name: PATH
 
 targets:
   dockerfile-label-schema:
