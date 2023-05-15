@@ -46,6 +46,14 @@ sources:
     transformers:
       - trimprefix: "v"
 
+conditions:
+  checkIfVersionDiffers:
+    name: Check if installed version differs
+    kind: shell
+    sourceid: elastic-apm-agent-ruby
+    spec:
+      command: .ci/scripts/test-version.sh
+
 targets:
   dockerfile-label-schema:
     name: Set org.label-schema.version in Dockerfile
