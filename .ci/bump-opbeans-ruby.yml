@@ -52,7 +52,7 @@ conditions:
     kind: shell
     sourceid: elastic-apm-agent-ruby
     spec:
-      command: bash .ci/scripts/test-version.sh
+      command: .ci/scripts/test-version.sh
       environments:
         - name: PATH
 
