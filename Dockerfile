@@ -9,8 +9,8 @@ RUN apk update && \
     rm -rf /var/cache/apk/*
 
 COPY Gemfile Gemfile.lock /app/
-ENV BUNDLER_VERSION 2.2.15
-RUN gem install bundler
+ENV BUNDLER_VERSION 2.4.22
+RUN gem install bundler -v ${BUNDLER_VERSION}
 RUN bundle install --jobs 20 --retry 5
 
 COPY . /app
