@@ -68,7 +68,7 @@ GEM
     concurrent-ruby (1.2.3)
     crass (1.0.6)
     domain_name (0.6.20240107)
-    elastic-apm (4.7.1)
+    elastic-apm (4.7.2)
       concurrent-ruby (~> 1.0)
       http (>= 3.0)
       ruby2_keywords
@@ -183,7 +183,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  elastic-apm (= 4.7.1)
+  elastic-apm (= 4.7.2)
   foreman
   http
   listen
