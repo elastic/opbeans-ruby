@@ -29,7 +29,7 @@ LABEL \
     org.label-schema.license="MIT" \
     org.opencontainers.image.vendor="Elastic" \
     org.opencontainers.image.title="opbeans-ruby" \
-    org.opencontainers.image.version="4.7.0" \
+    org.opencontainers.image.version="4.7.2" \
     org.opencontainers.image.url="https://hub.docker.com/r/opbeans/opbeans-ruby" \
     org.opencontainers.image.source="https://github.com/elastic/opbeans-ruby" \
     org.opencontainers.image.licenses="MIT" \
