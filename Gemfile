@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'sprockets'
-gem 'elastic-apm', '4.7.2'
+gem 'elastic-apm', '4.7.3'
 gem 'foreman'
 gem 'http'
 gem 'lograge'
