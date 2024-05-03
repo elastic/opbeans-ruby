@@ -31,6 +31,8 @@ actions:
   opbeans-ruby:
     kind: github/pullrequest
     scmid: githubConfig
+    sourceid: elastic-apm-agent-ruby
+    title: 'build(deps): Bump elastic-apm to {{ source "elastic-apm-agent-ruby" }}'
     spec:
       automerge: false
       labels:
