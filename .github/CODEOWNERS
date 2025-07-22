@@ -1,1 +1,5 @@
+# Default owner
+* @elastic/apm-agent-ruby
+
+# Sub-directories/files ownership
 /.github/workflows @elastic/observablt-ci
